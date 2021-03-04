@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* 
+      Realizaremos una función que reciba un objeto, y muestre cada dos segundos 
+      sus claves y valores en este formato: [clave, valor]. 
+      
+      El proceso no debe ser bloqueante. 
+    */
+    const obj1 = {
+      a: "something",
+      b: 42,
+      c: false
+    };
+
+    console.log('>> INICIO --> Clase 2 Ejercicio 2');
+    function resuelve2SegundosDespues(obj) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(Object.entries(obj));
+        }, 2000);
+      });
+    }
+
+    const mostrarCada2Segundos = async function (obj) {
+      for (var i = 0; i < 100; i++) {
+        let value = await resuelve2SegundosDespues(obj);
+        console.log(value);
+      }  
+    }
+
+    mostrarCada2Segundos(obj1).then((v) => {});
+
+    console.log('>> FIN --> Clase 2 Ejercicio 2');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

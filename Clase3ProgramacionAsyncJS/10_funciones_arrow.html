@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    //////////////////////////
+    // Ejemplo de Funciones //
+    //////////////////////////
+
+    /*
+      Funciones con operador arrow (10).
+      
+      Consiste en declarar únicamente los parámetros, y luego 
+      conectarlos con el cuerpo de la función con el operador =>
+    */
+    console.log('>> INICIO --> Funciones con operador arrow.');
+    // ES10
+    const aplanarArray = (arr, profundidad) => {
+      console.log(arr.flat(profundidad))
+    }
+    aplanarArray(
+      [
+        ['Ford', ['Renault'], 'Volkswagen'],
+        ['Harley Davidson', ['Indian']],
+        ['Mercedes Benz']
+      ], 2)
+
+    console.log('>> FIN --> Funciones con operador arrow.');
+
+    /*
+      Funciones de un solo parámetro (11).
+      
+      En el caso de que la función reciba un solo parámetro, 
+      los paréntesis se vuelven opcionales
+    */
+    console.log('>> INICIO --> Funciones de 1 parámetro operador arrow.');
+    const convertirCadenaACaracteres = param => {
+      // Antes de ES8
+      // console.log(Array.from(param))
+      
+      // Con ES8
+      console.log(Object.values(param))
+    }
+    convertirCadenaACaracteres('Samoyedo')
+    console.log('>> FIN -->  Funciones de 1 parámetro operador arrow.');
+
+    /*
+    Funciones arrow de una sola instrucción (12).
+      
+    - Llaves opcionales, el cuerpo se puede escribir en la misma línea de 
+      la declaración y el resultado de computar esa única línea se devuelve 
+      como resultado de la función, como si tuviera un “return” adelante 
+      (“return implícito”)
+
+    - Ejemplo: función devolvería “undefined” ya que console.log es 
+      tipo void y no devuelve nada
+
+    */
+    console.log('>> INICIO --> Funciones arrow de una sola instrucción.');
+    // ES6 - https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/template_strings
+    const saludar = nombre => console.log(`Hola ${nombre}!`)
+    saludar('Pepe') 
+
+    // Return implícito
+    const exponenciar = (a, b) => a**b
+    console.log(exponenciar(2, 5))
+    console.log('>> FIN -->  Funciones arrow de una sola instrucción.');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

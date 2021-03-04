@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /////////////////////////
+    // Clase 3 Ejercicio 3 // (46)
+    /////////////////////////
+    /*
+    - Desarrollar una función ‘mostrarLetras’ que reciba un string 
+      como parámetro y permita mostrar una vez por segundo cada 
+      uno de sus caracteres. 
+    
+    - Al finalizar, debe invocar a la siguiente función que se le 
+      pasa también  como parámetro: 
+      const fin = () => console.log('terminé')
+    
+    - Realizar tres llamadas a ‘mostrarLetras’ con el mensaje 
+      ‘¡Hola!’ y demoras de 0, 250 y 500 mS verificando que los 
+      mensajes de salida se intercalen.
+
+    */
+    // Comportamiento sincrónico 
+    console.log('>> INICIO --> Clase 3 Ejercicio 3.')
+    const fin = () => console.log('terminé')
+
+    function mostarLetras(param, retardo, callback) {
+      let arr = Object.values(param)
+      for (let i in arr) {
+        (function (i) {
+          setTimeout(function () {
+            console.log(arr[i]);
+            if (i == arr.length - 1) {
+              callback()
+            }
+          }, retardo * (Number(i) + 1));
+        })(i);
+      }
+    }
+    
+    // Retardo 1seg
+    // mostarLetras('¡Hola!', 1000, fin)
+
+    // Retardo 500mseg
+    // mostarLetras('¡Hola!', 500, fin)
+
+    // Retardo 250mseg
+    // mostarLetras('¡Hola!', 250, fin)
+
+    // [¡,H,o,l,a,!]
+    console.log('>> FIN --> Clase 3 Ejercicio 3.')
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

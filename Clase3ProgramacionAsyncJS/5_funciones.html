@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    //////////////////////////
+    // Ejemplo de Funciones //
+    //////////////////////////
+
+    /*
+      Declaración de funciones clásica (7).
+      Tipado dinámico de JS:
+      No es necesario especificar el tipo de dato que devuelven las funciones, 
+      ni el tipo de dato de los parámetros que éstas reciben
+    */
+    console.log('>> INICIO --> Declarar funciones clásica');
+    function mostrarComoArray(...params) {
+      /*
+      // Antes de ES8
+      for (var elem in params) {
+        console.log(params[elem])
+      }
+      */
+      // Con ES8
+      console.log(Object.values(params))
+    }
+    mostrarComoArray('Nombre', 'Apellido', 'Teléfono', 'DNI')
+    console.log('>> FIN --> Declarar funciones clásica');
+
+    /*
+      Declaración de funciones como objeto (9).
+      - Es posible asignar una declaración de función a una variable
+      - La podemos ejecutar de la misma forma que una función clásica
+    */
+    console.log('>> INICIO --> Funciones como objeto.');
+    const concatenarArrays = function (...params) {
+      let arr = []
+      for (var elem in params) {
+        arr = arr.concat(params[elem]);
+      }
+      console.log(arr.sort());
+    }
+    concatenarArrays(
+      ['Ford', 'Renault', 'Volkswagen'],
+      ['Harley Davidson', 'Indian'],
+      ['Mercedes Benz']);
+
+    console.log('>> FIN -->  Funciones como objeto.');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

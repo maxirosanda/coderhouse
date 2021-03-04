@@ -1,0 +1,22 @@
+-> 11_clase_2_1
+-> 16_object_values
+-> 18_object_entries
+-> 20_padding
+-> 24_async_await_1
+-> 24_async_await_2
+-> 30_clase_2_2
+-> 33_regex_dotAll
+-> 34_rest_spread
+-> 36_iteracion_asincronica
+-> 37_promise_prototype_finally
+-> 39_clase_2_3
+-> 46_es10_dynamic_import -> 46_es10_dynamic_import module.js
+-> 47_flat_flat_map
+-> 49_object_fromEntries
+-> 50_trimStart_trimEnd
+-> 51_optional_catch_binding
+-> 53_private_class_variables
+-> 57_ejemplos_es11
+-> 59_nullish_coalescing_operator
+-> 67_clase_2_2
+-> 82_clase_2_4

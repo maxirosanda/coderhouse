@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplos de ES11 */
+    console.log('>> INICIO --> ES11 - Nullish coalescing op');
+    // ?? Devuelve operando del lado derecho por null o undefined
+    // || Devuelve operando del lado derecho por null, undefined, 0, false, '', etc.
+
+    let evaluarConInterr = function (param) {
+      return param ?? 'valor_default';
+    }
+
+    let evaluarConPipe = function (param) {
+      return param || 'valor_default';
+    }
+
+    console.log(`Pasar null a ??: ${evaluarConInterr(null)}`);
+    console.log(`Pasar undefined a ??: ${evaluarConInterr(undefined)}`);
+    console.log(`Pasar '' a ??: ${evaluarConInterr('')}`);
+    console.log(`Pasar 0 a ??: ${evaluarConInterr(0)}`);
+    console.log(`Pasar false a ??: ${evaluarConInterr(false)}`);
+
+    console.log(`Pasar null a ||: ${evaluarConPipe(null)}`);
+    console.log(`Pasar undefined a ||: ${evaluarConPipe(undefined)}`);
+    console.log(`Pasar '' a ||: ${evaluarConPipe('')}`);
+    console.log(`Pasar 0 a ||: ${evaluarConPipe(0)}`);
+    console.log(`Pasar false a ||: ${evaluarConPipe(false)}`);
+
+    console.log('>> FIN --> ES11 - Nullish coalescing op');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

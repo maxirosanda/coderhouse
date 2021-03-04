@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplo de Array.flat(...) y Array.flatMap(...) */
+    console.log('>> INICIO --> Ejemplo 1 de Array.flat(...)');
+    const arr1 = ['1', ['2', '3'], '4', '5', ['6', ['7']], '8', '9', '10' ];
+    console.log(arr1.flat(1));
+    console.log('>> FIN --> Ejemplo 1 de Array.flat(...)');
+   
+    console.log('>> INICIO --> Ejemplo 2 de Array.flat(...)');
+    const arr2 = ['1', '2', , , ,'3'];
+    console.log(arr2.flat(1));
+    console.log('>> FIN --> Ejemplo 2 de Array.flat(...)');
+
+    console.log('>> INICIO --> Ejemplo de Array.flatMap(...)');
+    const arr3 = ['1', '2','3', '4'];
+    const mult = x => x%2;
+    console.log(arr3.flatMap(mult));
+    console.log('>> FIN --> Ejemplo de Array.flatMap(...)'); 
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

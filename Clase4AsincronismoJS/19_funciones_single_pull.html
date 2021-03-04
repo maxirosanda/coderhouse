@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    ///////////////////////////
+    // Funciones Single Pull // (19)
+    ///////////////////////////
+    /*
+    +++++++++++++++++
+    + Sistemas PULL +
+    +++++++++++++++++
+    - El consumidor determina cuándo recibe datos del productor de datos
+
+    - El productor desconoce cuándo se entregarán los datos al consumidor
+    
+    - Cada función de JS es un sistema Pull (productor de datos)
+      mientras que el código que llama a esa función es el consumidor 
+      de datos extrayendo datos mediante su valor de retorno
+
+    - ES6 -> funciones de generador e iteradores (función *) -> sistema Pull. 
+      El código que llama a iterator.next() es el consumidor, 
+      "extrayendo" múltiples valores del iterador (el productor).  
+
+    - Función: "subprograma" que puede llamarse por código externo 
+      (o interno en caso de recursión) a la función.
+
+    - La función se compone de una secuencia de declaraciones, 
+      (cuerpo de la función)
+
+    - Se pueden pasar valores a una función, y la función 
+      puede devolver un valor.
+
+    - Para usar una función, debemos definirla en algún lugar del ámbito 
+      (declaración pasiva) desde el que deseas llamarla (llamada activa).
+    */
+    console.log('>> INICIO --> Funciones Single Pull');
+    
+    // Funcion recursiva con invocacion interna
+    function cuentaRegresiva(numero) {
+      // Imprime numero
+      console.log(numero);
+
+      // Se lo decrementa
+      const nuevoNumero = numero - 1;
+
+      // Invocacion recursiva hasta llegar a 0
+      if (nuevoNumero >= 0) {
+        cuentaRegresiva(nuevoNumero);
+      }
+    }
+
+    // Invocacion 1
+    cuentaRegresiva(4)
+
+    // Invocacion 2
+    cuentaRegresiva(5)
+    console.log('>> FIN --> Funciones Single Pull');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

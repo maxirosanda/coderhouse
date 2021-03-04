@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /////////////////
+    // setInterval // (42)
+    /////////////////
+    /*
+      setInterval(function, milliseconds, param1, param2, ...)
+      ........................................................
+      
+      - Llama a una función o evalúa una expresión a intervalos 
+        específicos (en milisegundos).
+
+      - Trabaja sobre un modelo asincrónico no bloqueante.
+
+      - Continuará llamando a la función hasta que 
+        se llame a clearInterval () o se cierre la ventana.
+
+      - El valor de ID devuelto por setInterval () se usa como parámetro
+        para el método clearInterval ().
+    
+    */
+    console.log('>> INICIO --> setInterval.')
+    let retardoEjecucion = 5000
+
+    let id = setInterval(function() { 
+      console.log(`Mensaje cada ${retardoEjecucion} segundos`) 
+    }, retardoEjecucion);
+
+    console.log(`id para corte de setInterval(...): ` + id)
+    // Corte de ejecución
+    // Ejecutar en Web Developer Tools:
+    // clearInterval(id)
+    console.log('>> FIN --> setInterval.')
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

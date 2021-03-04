@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplos de Rest/Spread. */
+
+    // Ejemplo de Rest
+    // Uncaught SyntaxError: Rest element must be last element
+    console.log('>> INICIO --> Rest');
+    const { color1, color2, ... colores3 } = { color1: 'Azul', color2: 'Verde', color3: 'Rojo', color4: 'Amarillo', color5: 'Naranja'  } 
+    console.log('color1: ' + JSON.stringify(color1));
+    console.log('color2: ' + JSON.stringify(color2));
+    console.log('colores3: ' + JSON.stringify(colores3));
+    console.log('>> FIN --> Rest');
+
+    // Ejemplo de Spread
+    console.log('>> INICIO --> Spread');
+    // Concatenación de arrays con Spread.
+    let arrStr = ['Norma', 'Juan', 'Pedro']; 
+    let arrNum = [333,111]; 
+    arr = [...arrStr,...arrNum]; 
+    console.log(arr);
+    console.log('>> FIN --> Spread');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

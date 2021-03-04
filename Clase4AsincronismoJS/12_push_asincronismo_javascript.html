@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    ////////////////////////////////
+    // Asincronismo en JavaScript // (12)
+    ////////////////////////////////
+    /*
+    +++++++++++++++++
+    + Sistemas PUSH +
+    +++++++++++++++++
+    - El productor determina cuándo enviar datos al consumidor. 
+      El consumidor desconoce cuándo recibirá esos datos. 
+
+    - Promesa -> sistema Push. La Promesa (Productor) entrega 
+      un valor resuelto a las devoluciones de llamada registradas 
+      (consumidores). 
+    
+    - La Promesa determina con precisión cuándo ese valor 
+      se "empuja" a las devoluciones de llamada.
+
+    - RxJS presenta Observables -> sistema Push para JS. 
+      Un Observable es un Productor de múltiples valores, 
+      "empujándolos" a los Observadores (Consumidores).
+
+    */
+    console.log('>> INICIO --> Push - Asincronismo en JS');
+    const url = 'https://jsonplaceholder.typicode.com/todos/8'
+
+    function invocarAPI(url) {
+      // https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Utilizando_Fetch
+      // La interfaz API Fetch permite a un navegador web hacer 
+      // peticiones HTTP a servidores web. 
+      fetch(url)
+        // response es un objeto Promise
+        // con el método json() se obtiene el cuerpo del JSON
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(error => console.log(`Se ha producido un error: ${error}`))
+        .finally(console.log('Se imprime en éxito o fallo'))
+    }
+
+    // Invocacion correcta
+    invocarAPI(url)
+
+    // Invocacion incorrecta
+    // Activar modo offline Google Chrome: 
+    // Developer Tools -> Network -> Combo valor 'online' pasar a 'offline'
+    // invocarAPI(url)
+    console.log('>> FIN --> Push - Asincronismo en JS');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

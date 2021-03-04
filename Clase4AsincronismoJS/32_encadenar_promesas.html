@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    ////////////////////////////////
+    // Encadenamiento de promesas // (32)
+    ////////////////////////////////
+    /*
+    - Una llamada a promise.then devuelve una promesa, 
+      para que podamos llamar al siguiente .then.
+
+      ---------------
+      | new Promise |   
+      ---------------
+            | resolve(1)
+            V
+      ---------------
+      |   .then     |   
+      ---------------
+            | return 2
+            V
+      ---------------
+      |   .then     |   
+      ---------------
+            | return 4
+            V
+      ---------------
+      |   .then     |   
+      ---------------      
+    */
+    console.log('>> INICIO --> Encadenamiento de promesas');
+
+    new Promise(function (resolve, reject) {
+      setTimeout(() => resolve(1), 1000) // (*)
+    })
+    .then(result => { // (**)
+      console.log(result); // 1
+      return result * 2;
+    })
+    .then(result => { // (***)
+      console.log(result);  // 2
+      return result * 2;
+    })
+    .then(result => {
+      console.log(result);  // 4
+      return result * 2;
+    });
+    
+    //1) Promesa inicial se resuelve en 1 seg (*)
+    //2) Entonces se llama al controlador .then (**)
+    //3) El valor devuelto se pasa al siguiente
+    //   controlador .then (***) 
+    
+    console.log('>> FIN --> Encadenamiento de promesas');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

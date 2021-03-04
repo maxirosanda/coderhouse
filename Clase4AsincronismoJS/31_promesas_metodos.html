@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    //////////////////////
+    // Promesa: Métodos // (31)
+    //////////////////////
+    /*
+    - Promise.resolve(value): Devuelve un objeto Promise resuelto 
+      con el valor dado. Si el valor es thenable (Ej.: tiene un 
+      método then), la promesa devuelta "seguirá" este thenable, 
+      adoptando su eventual estado; sino la promesa devuelta será 
+      cumplida con el valor.
+
+    - Promise.reject(reason): Devuelve un objeto Promise rechazado 
+      con la razón dada.
+
+    - Promise.all(iterable): Llama al callback registrado 
+      en el método then cuando todas las promesas en el argumento 
+      iterable han sido cumplidas. Si alguna de las promesas no es 
+      cumplida se llama al callback registrado en el método catch.
+
+    - Promise.race(iterable): Devuelve una promesa que se cumple o 
+      rechaza tan pronto como una de las promesas del iterable se 
+      cumple o rechaza, con el valor o razón de esa promesa
+
+    */
+
+    const todasResueltasPromises = [
+      new Promise((resolve, reject) => setTimeout(resolve, 3000, 'Promise 1 resuelta')),
+      new Promise((resolve, reject) => setTimeout(resolve, 1000, 'Promise 2 resuelta')),
+      new Promise((resolve, reject) => setTimeout(resolve, 100, 'Promise 3 resuelta')),
+      new Promise((resolve, reject) => setTimeout(resolve, 5000, 'Promise 4 resuelta'))
+    ];
+    
+
+    const segundaRechazadaPromises = [
+      new Promise((resolve, reject) => setTimeout(resolve, 3000, 'Promise 1 resuelta')),
+      new Promise((resolve, reject) => setTimeout(reject, 1000, 'Promise 2 rechazada')),
+      new Promise((resolve, reject) => setTimeout(resolve, 100, 'Promise 3 resuelta')),
+      new Promise((resolve, reject) => setTimeout(resolve, 5000, 'Promise 4 resuelta'))
+    ];
+  
+  
+    console.log('Ejemplo 1 Promise.all: Todas las promises resuelven')
+    Promise.all(todasResueltasPromises)
+      .then(console.log)
+      .catch(console.error)
+
+    console.log('Ejemplo 2 Promise.all: Se procesa solo la promesa rechazada')
+    Promise.all(segundaRechazadaPromises)
+      .then(console.log)
+      .catch(console.error)
+
+    console.log('Ejemplo 3 Promise.race: Resuelve solo la promise que finaliza primero')
+    Promise.race(todasResueltasPromises)
+      .then(console.log)
+      .catch(console.error)
+
+    console.log('Ejemplo 4 Promise.race: Resuelve solo la promise que finaliza primero')
+    Promise.race(segundaRechazadaPromises)
+      .then(console.log)
+      .catch(console.error)
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

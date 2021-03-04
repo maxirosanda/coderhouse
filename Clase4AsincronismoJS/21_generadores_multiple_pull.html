@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    ////////////////////////////////////////////
+    // Generadores / Iteradores Múltiple Pull // (21)
+    ////////////////////////////////////////////
+    /*
+    - Los generadores son funciones de las que se puede salir y volver 
+      a entrar y puede devolver más de un valor.
+
+    - Su contexto (asociación de variables) será conservado entre las 
+      reentradas.
+
+    - La llamada a una función generadora no ejecuta su cuerpo inmediatamente, 
+      se devuelve un objeto iterador para la función en su lugar.
+
+    - La palabra clave function* puede usarse para definir una función 
+      generadora en una expresión.
+
+    */
+    console.log('>> INICIO --> Gen Múltiple Pull');
+
+    // Calcular potencia como generador
+    function* calcularPotencia(numero, potencia) {
+      let base = numero
+      while (true) {
+        yield base ** potencia // Devuelve cálculo conservando su estado
+        base++
+      }
+    }
+
+    let cp = calcularPotencia(3, 2)
+    console.log(cp.next().value)  // 3**2
+    console.log(cp.next().value)  // 4**2
+    console.log(cp.next().value)  // 5**2
+    console.log(cp.next().value)  // 6**2
+    console.log(cp.next().value)  // 7**2
+    console.log(cp.next().value)  // 8**2
+    console.log(cp.next().value)  // 9**2
+    console.log(cp.next().value)  // 10**2
+
+    // Aqui se quiere limitar la potencia a una secuencia determinada.
+    // Evalua el iterador como generador.
+    function* evaluar(secuencia, iterador) {
+      let indice = 0;
+      for (const valor of iterador) {
+        if (indice >= secuencia) {
+          return;
+        }
+        indice = indice + 1;
+        yield valor; // conserva estado de valor
+      }
+    }
+    var eval = evaluar(5, calcularPotencia(3, 2));
+    console.log(eval.next().value)  // 3**2 <-- Secuencia 1
+    console.log(eval.next().value)  // 4**2 <-- Secuencia 2
+    console.log(eval.next().value)  // 5**2 <-- Secuencia 3
+    console.log(eval.next().value)  // 6**2 <-- Secuencia 4
+    console.log(eval.next().value)  // 7**2 <-- Secuencia 5
+    console.log(eval.next().value)  // undefined <-- Exceso de secuencia
+    console.log('>> FIN --> Gen Múltiple Pull');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplo de Object.values(...) */
+    const obj1 = {
+      a: "something",
+      b: 42,
+      c: false
+    };
+
+    // Object.values(...) antes de ES8
+    console.log('>> INICIO --> Object.values(...) antes de ES8');
+    let arr = [];
+    for (var i in obj1) {
+      arr.push(obj1[i]);
+    }
+    console.log('** Array antes de ES8: ' + arr);
+    console.log('>> FIN --> Object.values(...) antes de ES8');
+
+    // Object.values(...) con ES8
+    console.log('>> INICIO --> Object.values(...) con ES8');
+    console.log('** Array con ES8: ' + Object.values(obj1));
+    console.log('>> FIN --> Object.values(...) con ES8');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

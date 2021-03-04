@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    //////////////////////////////
+    // setTimeout / setInterval // (41)
+    //////////////////////////////
+    /*
+      setTimeout(function, milliseconds, param1, param2, ...)
+      .......................................................
+      - Llama a una función o evalúa una expresión después 
+        de un número específico de milisegundos.
+      
+      - Trabaja sobre un modelo asincrónico no bloqueante.
+    
+    */
+    console.log('>> INICIO --> setTimeout.')
+    let retardoEjecucion = 10000
+
+    let id = setTimeout(function () {
+      console.log(`Mensaje después de ${retardoEjecucion} segundos`)
+    },
+      retardoEjecucion, // Expresado en milisegundos.
+      retardoEjecucion) // Pasado como parametro
+
+    console.log(`id para corte de setTimeout(...): ` + id)
+
+    // Analogo sin pasar parametros
+    /*
+    setTimeout(function () {
+      console.log(`Mensaje después de ${retardoEjecucion} segundos`)
+    },
+      retardoEjecucion) // Expresado en milisegundos.
+    */
+
+    // Se detiene con:
+    // let id
+    // clearTimeout(id)
+    console.log('>> FIN --> setTimeout.')
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

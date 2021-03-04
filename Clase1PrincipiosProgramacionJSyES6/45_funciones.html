@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script type="application/ecmascript">
+    
+    let funcionAnonima = function(nombre, apellido) {
+      return `${nombre} ${apellido}`;
+    } 
+    // console.log(funcionAnonima);
+    console.log(funcionAnonima('Juan', 'Perez'));
+
+    /** Uso de función anónima con forEach  */
+    console.log('Inicio --> Uso de función anónima con forEach <--');
+    let arrMeses = ['Enero','Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+    'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    arrMeses.forEach(function(mes) {
+      console.log(mes);
+    });
+    console.log('Fin --> Uso de función anónima con forEach <--');
+
+    // Función anónima desde otra función.
+    console.log('Inicio --> Función anónima desde otra función <--');
+    function foo() { return function() { return 'instrucciones función interna'; } };
+    console.log(this.foo().call());
+    console.log('Fin --> Función anónima desde otra función <--');
+
+    // Invocación inmediata de función anónima.
+    console.log('Inicio --> Invocación inmediata de función anónima (IIFE) <--');
+    (function() {  
+      var foo = 'inmediate foo (IIFE)';
+      console.log(foo);
+    }) ();
+    console.log('Fin --> Invocación inmediata de función anónima (IIFE) <--');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

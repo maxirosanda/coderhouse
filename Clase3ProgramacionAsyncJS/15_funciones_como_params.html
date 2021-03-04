@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    //////////////////////////////////////////
+    // Ejemplo de Funciones como parametros //
+    //////////////////////////////////////////
+
+    /*
+      Funciones como parámetros.
+
+      - En JS es posible asignar una función a una variable. 
+        Esto es porque internamente, las funciones también son objetos 
+        (y las variables, referencias a esos objetos). 
+        
+      - Así Javascript nos permite hacer que una función reciba 
+        como parámetro una referencia a otra función.
+
+      - Donde puedo usar una variable puedo también usar 
+        directamente el contenido de esa variable.
+
+    */
+    console.log('>> INICIO --> Funciones como parámetros.')
+    // La función suprimirEspacios recibe una función anónima
+    const suprimirEspacios = ((param) => {  
+      return param.trim()
+    })
+    console.log(suprimirEspacios('   Texto de prueba   '))
+
+    // Funciones anonimas con parametros
+    // La función "ejecutar" recibe un "callback".
+    const ejecutar = (suprimirEspacios, param) => suprimirEspacios(param);
+    console.log(ejecutar(suprimirEspacios, '  Funcion como parametro  '))
+    
+    console.log('>> FIN --> Funciones como parámetros.')
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

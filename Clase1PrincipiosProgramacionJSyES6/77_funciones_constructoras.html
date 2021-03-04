@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+
+    /** Uso de funciones constructoras.  */
+    console.log('Inicio --> Uso de funciones constructoras. <--');
+    function Persona(nombre, edad) {
+      this.nombre = nombre;
+      this.edad = edad;
+      Persona.contador++;
+    }
+    
+    Persona.prototype.saludo = function() {
+      console.log('Hola');
+    }
+
+    Persona.contador = 0;
+
+    let juan = new Persona('Juan', 23);
+    console.log(juan);
+    console.log(juan.saludo());
+    console.log(Persona.contador);
+    
+    let pablo = new Persona('Pablo', 6);
+    console.log(pablo);
+    console.log(pablo.saludo());
+    console.log(Persona.contador);
+
+    console.log('Fin --> Uso de funciones constructoras. <--');
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplo de Object.entries(...) */
+    const obj1 = {
+      a: "something",
+      b: 42,
+      c: false
+    };
+
+    // Object.entries(...) antes de ES8
+    console.log('>> INICIO --> Object.entries(...) antes de ES8');
+    let arr = [];
+    for (var i in obj1) {
+      arr.push([i, obj1[i]]);
+    }
+    console.log('** Array antes de ES8: ' + arr);
+    console.log('>> FIN --> Object.entries(...) antes de ES8');
+
+    // Object.entries(...) con ES8
+    console.log('>> INICIO --> Object.entries(...) con ES8');
+    console.log('** Array con ES8: ' + Object.entries(obj1));
+    console.log('>> FIN --> Object.entries(...) con ES8');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

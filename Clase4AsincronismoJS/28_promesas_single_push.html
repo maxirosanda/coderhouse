@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    //////////////////////////
+    // Promesas Single Push // (28)
+    //////////////////////////
+    /*
+      - Promesa: proxy para un valor no necesariamente conocido 
+        en el momento de creada la promesa.
+
+      - Permite asociar manejadores que actuarán asincrónicamente 
+        sobre un eventual valor en caso de éxito o falla
+
+      - Se permite que métodos asíncronos devuelvan valores como si 
+        fueran síncronos: en vez de inmediatamente retornar el valor 
+        final, el método asíncrono devuelve una promesa de suministrar 
+        el valor en algún momento en el futuro.
+
+    ////////////////////////////
+    // Estados de una promesa // (29)
+    ////////////////////////////
+
+    * Pendiente (pending): estado inicial, no cumplida o rechazada.
+    * Cumplida (fulfilled): operación se completó satisfactoriamente.
+    * Rechazada (rejected): operación falló.
+
+    Una promesa pendiente puede ser cumplida con un valor, o rechazada 
+    con una razón (error). Cuando cualquiera de estas dos opciones 
+    sucede, los métodos asociados, encolados por el método then de la 
+    promesa, son llamados.
+
+    */
+    console.log('>> INICIO --> Estados de una promesa');
+
+    let marcaSmartphone
+    
+    // Flag para resolver.
+    // marcaSmartphone = 'Samsung';
+
+    // Flag para rechazar.
+    marcaSmartphone = 'Motorola';
+
+    // Se crea la promesa.
+    var verificarPromise = new Promise(
+      function (resolve, reject) {
+        var smartphone = {
+          marca: 'Samsung',
+          modelo: 'GALAXY A01',
+          color: 'Negro',
+          memoriaRAM: '2GB',
+          camara: '13.0 MP + 2.0 MP.',
+        };
+        // Si coincide la marca se resuelve la promise
+        // y se devuelven sus características
+        if (marcaSmartphone == smartphone.marca) {
+          resolve(smartphone); // fulfilled
+        } else {
+          var reason = new Error('Características no disponibles');
+          // Caso contrario se rechaza
+          reject(reason); // reject
+        }
+
+      }
+    );
+
+    // Se consume la promesa.
+    var verificarCaracteristicas = function () {
+      verificarPromise
+        .then(function (fulfilled) {
+          // Se procesa en caso de haberse resuelto
+          console.log(fulfilled);
+        })
+        .catch(function (error) {
+          // Se procesa en caso de haberse rechazado
+          console.error(`Error: ${error.message}`);
+        });
+    };
+
+    // Se invoca al consumo de la promesa
+    verificarCaracteristicas();
+
+    console.log('>> FIN --> Estados de una promesa');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

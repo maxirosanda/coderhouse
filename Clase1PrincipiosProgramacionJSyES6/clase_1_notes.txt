@@ -1,0 +1,4 @@
+https://caniuse.com/?search=ECMAScript%202015%20(ES6)
+https://caniuse.com/?search=ES5
+https://kangax.github.io/compat-table/es2016plus/
+

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /////////////////////////
+    // Clase 4 Ejercicio 2 // (37)
+    /////////////////////////
+    /*
+    Determinaremos en cada caso la salida que se registra 
+    en la consola
+    */
+ 
+    console.log('>> INICIO --> Clase 4 Ejercicio 2');
+    console.log('>> Caso a.');
+    Promise.resolve(20)
+      .then(x => x + 1) // 20 + 1
+      .then(x => x * 2) // 21 * 2
+      .then(x => {      // 42
+        if (x == 22) throw 'Error'
+        else return 80 // solo se pasa x no el retorno
+      })
+      .then(x => 30)  // 30
+      .then(x => x / 2) // 15 <----
+      .then(console.log)
+      .catch(console.log)
+
+    console.log('>> Caso b.');
+    Promise.resolve(10)
+      .then(x => x + 1) // 10 + 1
+      .then(x => x * 2) // 11 * 2
+      .then(x => {  // 22
+        if (x == 22) throw 'Error' // <-- Corte ejecucion
+        else return 80
+      })
+      .then(x => 30)
+      .then(x => x / 2)
+      .then(console.log)
+      .catch(console.log) // <-- Error
+
+    console.log('>> Caso c.');
+    Promise.reject(30) // <-- Corte ejecucion
+      .then(x => x + 1)
+      .then(x => x * 2)
+      .then(x => {
+        if (x == 22) throw 'Error'
+        else return 80
+      })
+      .then(x => 30)
+      .then(x => x / 2)
+      .then(console.log)
+      .catch(console.log) // <-- 30
+
+    console.log('>> FIN --> Clase 4 Ejercicio 2');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

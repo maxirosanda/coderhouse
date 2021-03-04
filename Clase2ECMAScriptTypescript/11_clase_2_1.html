@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /** Clase 2 - Ejercicio 1.  */
+    /*
+    Dados los siguientes arrays:     '6**2'    '**'    '3**3'    '4**'    '4**5'    '8**2**'    '4*=5'
+
+    Realizaremos una función que reciba un array y devuelva el resultado de la operación 
+    potenciación en caso de poder realizarla. 
+    De no ser posible, devolverá null.
+
+    Se deberá detectar si el array incluye un ** y tiene un número a cada lado. En ese caso, 
+    realizar la operación de potenciación del número localizado a la izquierda del ** elevado 
+    al exponente que indica el número de la derecha. 
+
+    Utilizaremos las funciones de ES7 includes y **
+
+    */
+    console.log('Inicio --> Clase 2 - Ejercicio 1. <--');
+    var arrPotenciacion = ['6**2', '**', '3**3', '4**', '4**5', '8**2**', '4*=5'];
+
+    function evaluarPotenciacion(arr) {
+      var arrResultado = [];
+      for (var pot in arr) {
+        try {
+          var indiceOperador = arrPotenciacion[pot].indexOf("**");
+          var numIzq = arr[pot].substr(0, indiceOperador);
+          var numDer = arr[pot].substr(indiceOperador + 2, arr[pot].length);
+          Number.isNaN(numIzq ** numDer) ? arrResultado.push(null) : arrResultado.push(numIzq ** numDer);
+        } catch (e) {
+          arrResultado.push(null);
+        }
+      }
+      return arrResultado;
+    }
+    console.log(evaluarPotenciacion(arrPotenciacion));
+    console.log('Fin --> Clase 2 - Ejercicio 1. <--');
+  </script>
+</head>
+
+
+<body>
+
+</body>
+
+</html>

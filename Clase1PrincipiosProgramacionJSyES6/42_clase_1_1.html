@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /**
+      Página 42
+      Dado el siguiente fragmento de código, vamos a determinar cuál será el output del console.log:
+      -  Utilizando var
+      -  Utilizando let
+      -  Utilizando const
+    */
+    // a. var
+    console.log('***** a. Caso usando var - Inicio');
+    var a = 10;
+    (function () {
+      var a = 20;
+      console.log('a dentro de la funcion: ' + a); //output? 
+      if (true) {
+        var a = 30;
+        a = 40;
+        console.log('a dentro de condicional: ' + a); // output?
+      }
+      console.log('a salida de condicional: ' + a); //output?
+    })()
+    console.log('a fuera de la funcion: ' + a);
+    console.log('***** a. Caso usando var - Fin');
+
+    // b. let
+    console.log('***** b. Caso usando let - Inicio');
+    let b = 10;
+    (function () {
+      let b = 20;
+      console.log('b dentro de la funcion: ' + b); //output? 
+      if (true) {
+        let b = 30;
+        b = 40;
+        console.log('b dentro de condicional: ' + b); // output?
+      }
+      console.log('b salida de condicional: ' + b); //output?
+    })()
+    console.log('b fuera de la funcion: ' + b);
+    console.log('***** b. Caso usando let - Fin');
+    
+    // b. const
+    const c = 10;
+    (function () {
+      const c = 20;
+      console.log('c dentro de la funcion: ' + c); //output? 
+      if (true) {
+        const c = 30;
+        c = 40;
+        console.log('c dentro de condicional: ' + c); // output?
+      }
+      console.log('c salida de condicional: ' + c); //output?
+    })()
+    console.log('c fuera de la funcion: ' + c);
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

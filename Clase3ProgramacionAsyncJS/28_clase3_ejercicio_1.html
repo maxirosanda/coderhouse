@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    //////////////////////////
+    // Clase 3: Ejercicio 1 // (28)
+    //////////////////////////
+    /*
+      Definiremos una función llamada operacion que reciba como 
+      parámetro 2 valores y 1 función con la operación a realizar. 
+      Deberá retornar el resultado.
+  
+      Definiremos las funciones: suma, resta, multiplicación, división 
+      y módulo. 
+      Estas recibirán 2 valores y devolverán el resultado. 
+      Serán pasadas como parámetro en la llamada a la función operacion
+  
+      Todas las funciones tendrán que realizarse con sintaxis flecha.
+    */
+
+    // Funciones con operaciones
+    sumar = (a, b) => `Suma: ${a + b}`
+    restar = (a, b) => `Resta: ${a - b}`
+    multiplicar = (a, b) => `Multiplicación: ${a * b}`
+    dividir = (a, b) => `División: ${a / b}`
+    calcularModulo = (a, b) => `Módulo: ${a % b}`
+
+    // Función principal
+    realizarOperaciones = (a, b, callbackOperacion) => {
+      console.log(callbackOperacion(a, b))
+    }
+
+    // Suma
+    realizarOperaciones(5789, 70, sumar)
+
+    // Resta
+    realizarOperaciones(43, 78, restar)
+
+    // Multiplicación
+    realizarOperaciones(4n, 783333332n, multiplicar)
+
+    // División
+    realizarOperaciones(BigInt(24), 5n, dividir)
+
+    // Módulo
+    realizarOperaciones(Number(7890), 15, calcularModulo)
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

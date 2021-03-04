@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /////////////////////////////////
+    // Sincronismo vs Asincronismo // (30)
+    /////////////////////////////////
+    /*
+      - Sincrono: Ejecución secuencial. Retorna cuando la operación
+        ha sido completada en su totalidad.
+
+      - Asíncrono: finalización de la operación es notificada
+        al programa principal. El procesado de la respuesta se 
+        hará en algún momento futuro
+    */
+
+    //////////////////////////
+    // Ejecución sincrónica // (32)
+    //////////////////////////
+    /*
+      - Al escribir más de una instrucción en un programa, esperamos 
+        que las instrucciones se ejecuten comenzando desde la primera 
+        línea, una por una, de arriba hacia abajo hasta llegar al final 
+        del bloque de código. 
+      
+      - Sólo una vez ejecutadas todas las instrucciones de esa función, 
+        el programa retomará con el flujo de instrucciones que venía 
+        ejecutando antes.
+
+      - Sólo se ejecutan las instrucciones de una sola de las funciones 
+        a la vez. Debe finalizar una función para poder continuar con 
+        la otra.
+    */
+
+    console.log('>> INICIO --> Sincronismo vs Asincronismo.')
+    let codigo = "4000001234567899";
+
+    padInicio = (param) => String(param).padStart()
+    padFin = (param) => param.padEnd()
+    enmascarar = (param) => param.slice(-4).padStart(param.length, '*')
+
+    // Secuencia sincronica.    
+    codigo = padInicio(codigo)
+    codigo = padFin(codigo)
+    codigo = enmascarar(codigo)
+    console.log(codigo)
+
+    // console.log(enmascarar(padFin(padInicio(codigo))))
+
+    console.log('>> FIN --> Sincronismo vs Asincronismo.')
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

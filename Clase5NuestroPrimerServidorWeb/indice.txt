@@ -1,0 +1,19 @@
+1. Intro diapositiva (hasta pag. 5) *
+2. index.js (Principio de funcionamiento) *
+3. requerimientos.jpg *
+4. nodemon.jpg *
+5. ejecucion_js.jpg *
+6. index.js + ejercicio_1.jpg (28_ejercicio1.js) *
+7. index.js + ejercicio_2_1.jpg + ejercicio_2_2.jpg (29_ejercicio2.js) *
+8. Break *
+9. modulo.jpg *
+10. servidor.js (crypto_test.js + os_test.js + query_string_test.js) *
+11. ejercicio_3.jpg + index.js + (42_ejercicio3.js) *
+12. Seguir diapositiva desde página 43
+
+
+Glitch
+------
+https://secretive-plant-waxflower.glitch.me/
+https://glitch.com/edit/#!/
+https://glitch.com/edit/#!/secretive-plant-waxflower?path=script.js%3A1%3A0

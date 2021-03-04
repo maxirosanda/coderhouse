@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* 
+      Ejemplos de Regex.
+    */
+    console.log(">> INICIO --> Ejemplos de Regex.");
+
+    var str = "Lo siguiente texto es solo un texto.";
+    var rex = new RegExp("texto", "gi");
+    console.log(rex.exec(str));
+
+    console.log('INICIO --> Ejemplo 1 sin flag /s')
+    const result = /foo.bar/.test('foo\nbar');
+    console.log(result);
+    console.log('FIN --> Ejemplo 1 sin flag /s')
+
+    console.log('INICIO --> Ejemplo 2 con flag /s')
+    const result2 = /foo.bar/s.test('foo\nbar');
+    console.log(result2);
+    console.log('FIN --> Ejemplo 2 con flag /s')
+
+    console.log('INICIO --> Ejemplo 3 sin flag /s')
+    const result3 = /^.$/.test('\n');
+    console.log(result3);
+    console.log('FIN --> Ejemplo 3 sin flag /s')
+
+    console.log('INICIO --> Ejemplo 4 con flag /s')
+    const result4 = /^.$/s.test('\n');
+    console.log(result4);
+    console.log('FIN --> Ejemplo 4 con flag /s')
+
+    console.log('INICIO --> Ejemplo 5 con flag /s')
+    const result5 = /juan.perez$/s.test('Su nombre de usuario es juan.perez');
+    console.log(result5);
+    console.log('FIN --> Ejemplo 5 con flag /s')
+
+    console.log(">> FIN --> Ejemplos de Regex.");
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

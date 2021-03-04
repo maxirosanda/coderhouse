@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+
+    //////////////
+    // Padding. //
+    //////////////
+    /*
+    str.padStart(targetLength [, padString])
+    str.padEnd(targetLength [, padString])
+    
+    . padStart() rellena la cadena actual con una cadena dada de modo 
+      que la cadena resultante alcance una longitud determinada. 
+      El relleno es aplicado desde el inicio (izquierda) de la cadena actual.
+        
+    . padEnd() opera de la misma forma pero el relleno es aplicado 
+      desde el fin (derecha)    
+    */
+    console.log('>> INICIO --> EJ.1 String Padding ES8');
+    let phoneNumber = '+54116194144';
+    let lastFourDigits = phoneNumber.slice(-4);
+    console.log(`SMS sent to ${lastFourDigits.padStart(phoneNumber.length, '*')}`);
+    console.log('>> FIN --> EJ.2 String Padding ES8');
+
+    console.log('>> INICIO --> EJ.2 String Padding ES8');
+    // Relleno a un total de 25 caracteres llenado con espacios en blanco
+    console.log(phoneNumber.padEnd(25));
+    console.log('>> INICIO --> EJ.2 String Padding ES8');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

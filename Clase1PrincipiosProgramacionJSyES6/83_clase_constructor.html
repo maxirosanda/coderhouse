@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+
+    /** Uso de Clases Constructoras.  */
+    console.log('Inicio --> Clases constructoras. <--');
+    class Persona {
+      constructor(nombre, edad) {
+        this.nombre = nombre
+        this.edad = edad
+        Persona.contador++
+      }
+      static contador = 0
+
+      saludo() {
+        console.log('Hola')
+      }
+    }
+
+    let juan = new Persona('Juan', 23);
+    console.log(juan.nombre)
+    console.log(Persona.contador)
+    console.log(juan.saludo())
+
+    let pablo = new Persona('Pablo', 6);
+    console.log(pablo.nombre)
+    console.log(Persona.contador)
+    console.log(pablo.saludo())
+
+    console.log('Fin --> Clases constructoras. <--');
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

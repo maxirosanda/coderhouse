@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplos de ES11 */
+/*
+    console.log('>> INICIO --> ES11 - Promise.allSettled()');
+    // https://jsonplaceholder.typicode.com/todos/1
+    const promise1 = Promise.resolve('55')
+    const promise2 = Promise.reject(33)
+    const promise3 = Promise.resolve('Un valor')
+    
+    const promises = [promise1, promise2, promise3]
+    Promise.allSettled(promises).then((results) =>
+      results.forEach((result) => 
+        console.log(result))
+    )
+    console.log('>>  --> ES11 - Promise.allSettled()'); 
+*/
+    console.log('>> INICIO --> ES11 - Optional Chaining Operator');
+    let cliente1 = {
+      nombre: 'Juan',
+      apellido: 'Perez',
+      domicilio: {
+        calle: 'Córdoba',
+        nro: 1520,
+        ciudad: 'Posadas'
+      },
+      nombreCompleto: function() {return `${this.nombre} ${this.apellido}`}       
+    }
+
+    // OK
+    console.log(cliente1.ubicacion?.codigoPostal?.nombre);
+
+    // Error
+    console.log(cliente1.ubicacion.codigoPostal);
+
+    console.log('>> FIN --> ES11 - Optional Chaining Operator');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

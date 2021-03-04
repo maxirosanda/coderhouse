@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    //////////////////////////////
+    // Iteradores Múltiple Pull // (22)
+    //////////////////////////////
+    /*
+    - Un Iterador es un objeto que acumula datos en su interior.
+    */
+    console.log('>> INICIO --> Iter Múltiple Pull');
+
+    const misPeliculas = {
+      listadoPeliculas: {
+        cienciaFiccion: [
+          'Aliens',
+          'Terminator',
+          'They Live',
+        ],
+        accion: [
+          'First Blood',
+          'John Wick',
+          'Predator',
+          'The Warriors',
+        ],
+      },
+      [Symbol.iterator]() {
+        // Se juntan todos los titulos en un array
+        const arrPeliculas = Object.values(this.listadoPeliculas);
+
+        // Se almacenan indices de la pelicula y género
+        let indicePeliculaActual = 0;
+        let indiceGeneroActual = 0;
+
+        return {
+          // Se implementa next()
+          next() {
+            // Peliculas de acuerdo al indice de genero actual
+            const peliculas = arrPeliculas[indiceGeneroActual];
+
+            // noHayMasPeliculas es true cuando se recorrió todo el array
+            const noHayMasPeliculas = !(indicePeliculaActual < peliculas.length);
+            if (noHayMasPeliculas) {
+              // Se mueve el índice de género al siguiente
+              indiceGeneroActual++;
+              // Se resetea índice de pelicula a 0 para el nuevo set de peliculas
+              indicePeliculaActual = 0;
+            }
+
+            // Si todos los géneros se terminaron, se necesita decir al iterador
+            // que no se le van a dar mas valores
+            const noHayMasGeneros = !(indiceGeneroActual < arrPeliculas.length);
+            if (noHayMasGeneros) {
+              // Se retorna como terminado.
+              return {
+                value: undefined,
+                done: true
+              };
+            }
+
+            // Si todo está bien, retorna la pelicula desde el género
+            // actual e incrementa indicePeliculaActual la próxima vez,
+            // puede retornarse la siguiente película
+            return {
+              value: arrPeliculas[indiceGeneroActual][indicePeliculaActual++],
+              done: false
+            }
+          }
+        };
+      }
+    };
+
+    // Se itera el listado
+    for (const pelicula of misPeliculas) {
+      console.log(pelicula);
+    }
+
+    // Se muestra el listado
+    console.log(...misPeliculas)
+
+    console.log('>> FIN --> Iter Múltiple Pull');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

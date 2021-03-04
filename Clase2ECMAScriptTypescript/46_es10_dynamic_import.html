@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplo de ES10 - Dynamic Import */
+    console.log('>> INICIO --> ES10 - Dynamic Import');
+    const promisePrototypeFinally = './46_es10_dynamic_import module.js';
+    import(promisePrototypeFinally)
+      .then(promisePrototypeFinallyModule => promisePrototypeFinallyModule.asyncFunction());
+
+    /*
+      Access to script at 'file:///C:/Users/maximiliano.contini/Desktop/coderhouse/11850/ejercicios/
+      Clase%202%20-%20Nuevas%20funcionalidades%20de%20los%20lenguajes%20ECMAScript%20y%20Typescript/
+      46_es10_dynamic_import%20module.js' from origin 'null' has been blocked by CORS policy: 
+      Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, 
+      chrome-untrusted, https.
+
+      El bloqueo por CORS es una norma de seguridad del navegador web. 
+      Se debe correr a través de un servidor web.
+
+    */
+    console.log('>> FIN --> ES10 - Dynamic Import');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

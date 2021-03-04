@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title></title>
+  <script type="application/ecmascript">
+    /**
+      Dado el siguiente fragmento de código, vamos a determinar 
+      cuál será el output del console.log y explicar el 
+      comportamiento de this en cada llamada.
+    */
+
+    var nombre = 'Tom'
+    const rouco = {
+      nombre: 'Rouco',
+      especie: 'gato',
+      saludar() {
+        console.log(`Miauuuu (Hola me llamo ${this.nombre})`);
+        console.log(this === rouco);
+      }
+    };
+
+    rouco.saludar();
+
+    let saludar = rouco.saludar;
+    console.log('typeof: ' + (typeof saludar));
+    saludar();
+
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

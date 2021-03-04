@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script>
+
+    // "use strict";
+
+    // Ejemplo de this.
+    console.log('Inicio --> Ejemplo de this. <--');
+    console.log('this es el objeto window: ' + (this == this.window));
+    console.log('Fin --> Ejemplo de this. <--');
+
+    console.log('Inicio --> Ejemplo de this en objetos. <--');
+    var unObj = {
+      nombre: "Juan",
+      apellido: "Perez",
+      nombreCompleto: function() { return this.nombre + ' ' + this.apellido }
+    }
+    console.log('Nombre Completo: ' + unObj.nombreCompleto());
+    console.log('Fin --> Ejemplo de this en objetos. <--');
+
+    console.log('Inicio --> Ejemplo de this en funciones. <--');
+    function unaFuncion(param1, param2) {
+      console.log((this + " " +  param1 + " " +  param2));
+    }
+    unaFuncion('Jose', 'Rodriguez');
+    console.log('Fin --> Ejemplo de this en funciones. <--');
+
+    console.log('Inicio --> Ejemplo de this con operador new y desde un objeto. <--');
+    var objetoNew = new function() {
+      this.x = "valor1";
+      this.funcionInterna = function() {
+        return "funcion interna";
+      };
+      return this.x;
+    };
+    console.log(this.objetoNew);
+    console.log(this.objetoNew.funcionInterna());
+    console.log('Fin --> Ejemplo de this con operador new y desde un objeto. <--');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

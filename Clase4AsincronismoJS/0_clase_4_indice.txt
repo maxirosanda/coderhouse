@@ -1,0 +1,34 @@
+-> 12_push_asincronismo_javascript.html *        
+-> 15_clasif_push_pull.html *                    
+-> 19_funciones_single_pull.html *               
+-> 21_generadores_multiple_pull.html *           
+-> 22_iteradores_multiple_pull.html *            
+-> 25_clase4_ejerc_1.html *                      
+-> 28_promesas_single_push.html *                
+-> 31_promesas_metodos.html *                    
+-> 32_encadenar_promesas.html *                  
+-> 34_promises_states.jpg *                       
+-> 37_clase4_ejerc_2.html *                      
+-> 39_observables_multiple_push.ts (Node.js) *   
+-> 42_observer_suscripcion.ts (Node.js) *        
+-> 46_rxjs_operadores.ts (Node.js) *             
+-> 49_rxjs_fromEvent_filter.ts (Node.js) *        
+-> 51_diferencia_promise_observable.jpg *         
+-> 54_clase4_ejerc_3.ts (Node.js) *                
+-> 55_desafio_consigna_1.jpg *                    
+-> 56_desafio_consigna_2.jpg *                    
+
+Módulos externos npm
+--------------------
+https://www.npmjs.com/package/moment
+https://momentjs.com/docs/
+https://www.npmjs.com/package/lodash
+https://lodash.com/docs/4.17.15
+https://www.npmjs.com/package/axios
+https://github.com/axios/axios
+
+API Mocks
+---------
+https://jsonplaceholder.typicode.com/
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    console.log('Inicio -> Con funciones tradicionales');
+    var edadFT = 10;
+    function PersonFT() {
+      this.edadFT = 42;
+      setTimeout(function() {
+        console.log("this.edad - FT", this.edadFT);
+      }, 3000);
+    }
+    var ft = new PersonFT();
+    console.log('Fin -> Con funciones tradicionales');
+
+    console.log('Inicio -> Con arrow functions');
+    var edadAF = 10;
+    function PersonAF() {
+      this.edadAF = 42;
+      setTimeout(() => {
+        console.log("this.edad - AF", this.edadAF);
+      }, 3000);
+    }
+    var af = new PersonAF();
+    console.log('Fin -> Con arrow functions');
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

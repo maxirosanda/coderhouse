@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /////////////////////////
+    // Clase 3 Ejercicio 2 // (44)
+    /////////////////////////
+    /*
+    Determinaremos en los siguientes fragmentos de código 
+    el orden de salida de los mensajes a la consola 
+    y explicaremos el por que en cada caso
+    */
+    // Comportamiento sincrónico    
+    /*  
+    console.log('>> INICIO --> Clase 3 Ejercicio 2 - a.')
+
+    const delay = ret => { for (let i = 0; i < ret * 3e6; i++); }
+
+    function hacerTarea(num) {
+      console.log('haciendo tarea ' + num)
+      delay(100)
+    }
+    console.log('inicio de tareas');
+    hacerTarea(1)
+    hacerTarea(2)
+    hacerTarea(3)
+    hacerTarea(4)
+    console.log('fin de tareas')
+    console.log('otras tareas ...')
+
+    console.log('>> FIN --> Clase 3 Ejercicio 2 - a.')
+    */
+    
+    console.log('>> INICIO --> Clase 3 Ejercicio 2 - b.')
+
+    // Comportamiento Asincrónico --> Usar callbacks.
+    
+    function hacerTarea(num, cb) {
+      console.log('haciendo tarea ' + num)
+      setTimeout(cb, 100)
+    }
+
+    console.log('inicio de tareas');
+    hacerTarea(1, () => {
+      hacerTarea(2, () => {
+        hacerTarea(3, () => {
+          hacerTarea(4, () => {
+            console.log('fin de tareas')
+          })
+        })
+      })
+    })
+    console.log('otras tareas ...')
+
+    console.log('>> FIN --> Clase 3 Ejercicio 2 - b.')
+    
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

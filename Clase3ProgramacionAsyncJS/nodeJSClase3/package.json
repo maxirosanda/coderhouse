@@ -1,0 +1,22 @@
+{
+  "name": "nodejsclase3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/tsc",
+    "execute_18": "./node_modules/.bin/tsc && node 18_ejemploCallback.ts",
+    "execute_23": "./node_modules/.bin/tsc && node 23_callbacksAnidados.ts",
+    "execute_34": "./node_modules/.bin/tsc && node 34_bloqueante_vs_no-bloqueante.ts",
+    "execute_37": "./node_modules/.bin/tsc && node 37_ejecucion_asincronica.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "@types/node": "^14.14.27"
+  }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplo de Private Class Variables */
+    console.log('>> INICIO --> Private Class Variables');
+    class Clase1 {
+      #propiedadPrivada = 'privada'
+      constructor(propiedadPublica) {
+        // #propiedadPrivada = 'No accesible'
+        this.propiedadPublica = propiedadPublica
+      }
+
+    }
+
+    let cl1 = new Clase1('public');
+    console.log(cl1.#propiedadPrivada)
+    console.log(cl1.propiedadPublica)
+    console.log('>> FIN --> Private Class Variables'); 
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /////////////////////////
+    // Clase 4 Ejercicio 1 // (25)
+    /////////////////////////
+    /*
+    - Realizaremos una función que nos devuelva números aleatorios entre 
+      un mínimo y un máximo configurable y que muestre la cantidad de 
+      valores que vamos solicitando junto a la fecha y hora del pedido.
+
+    - El retorno será un objeto con el siguiente formato:  
+      {orden: 1, número: 5, fyh: dd/mm/yy hh:mm:ss}
+
+    - Aclaracion: No se pueden usar variables globales ni closures para 
+      mantener el contador.
+    */
+    console.log('>> INICIO --> Clase 4 Ejercicio 1');
+
+    // Se obtiene fecha formateada de la forma dd/mm/yy hh:mm:ss:xxx
+    function obtenerFechaFormateada(fecha) {
+      var datestring = 
+        fecha.getDate() 
+          + "/" + String(fecha.getMonth() + 1).padStart(2, '0') 
+          + "/" + fecha.getFullYear() 
+          + " " + String(fecha.getHours()).padStart(2, '0') 
+          + ":" + String(fecha.getMinutes()).padStart(2, '0') 
+          + ":" + String(fecha.getSeconds()).padStart(2, '0') 
+          + ":" + String(fecha.getMilliseconds()).padStart(3, '0') 
+      return datestring
+    }
+
+    // Calcular potencia como generador
+    function* devolverNroAleatorio(min, max) {
+      let obj = {}
+      let orden = 1
+      while (true) {
+        obj.orden = orden
+        obj.numero = Math.random() * (max - min) + min
+        obj.fyh = obtenerFechaFormateada(new Date())
+        yield JSON.stringify(obj) // Devuelve objeto conservando su estado
+        orden++
+      }
+    }
+
+    // Devuelve nros. aleatorios entre 5 y 10
+    let func = devolverNroAleatorio(5, 10)
+    console.log(func.next().value)
+    console.log(func.next().value)
+    console.log(func.next().value)
+    console.log(func.next().value)
+    console.log(func.next().value)
+    console.log(func.next().value)
+    console.log(func.next().value)
+    console.log(func.next().value)
+    console.log(func.next().value)
+    console.log(func.next().value)
+
+    console.log('>> FIN --> Clase 4 Ejercicio 1');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

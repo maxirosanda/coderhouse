@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplo de Optional Catch Binding */
+    console.log('>> INICIO --> Optional Catch Binding');
+    // Antes de ES2019
+    try {
+      throw Error('Se ha producido un error');
+    } catch (e) {
+      console.error(e)
+    }
+
+    // Despues de ES2019
+    try {
+      throw Error();
+    } catch {
+      console.error('Se ha producido un error')
+    }
+
+    console.log('>> FIN --> Optional Catch Binding'); 
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

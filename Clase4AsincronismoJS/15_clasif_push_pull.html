@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    ///////////////////////////////
+    // Clasificación Push / Pull // (15)
+    ///////////////////////////////
+    /*
+    - Tabla con operaciones pull (sincrónicas) y push 
+      (asincrónicas) que devuelven resultados simples 
+      o múltiples 
+      
+    +++++++++++++++++++++++++++++++++++
+    +      +  SINGLE    +  MULTIPLE   +
+    +++++++++++++++++++++++++++++++++++
+    + Pull +  Function  +  Iterator   +
+    +++++++++++++++++++++++++++++++++++
+    + Push +  Promise   +  Observable +
+    +++++++++++++++++++++++++++++++++++
+
+    Conceptos Función, Generador, Promesa, Observable
+    -------------------------------------------------
+    - Función: cálculo evaluado en forma pull que devuelve 
+      sincrónicamente un valor único en la invocación.
+
+    - Generador: cálculo evaluado en forma pull que sincrónicamente 
+      devuelve cero a valores (potencialmente) infinitos en la 
+      iteración.
+    
+    - Promesa: cálculo push que devuelve un valor único.
+
+    - Observable: cálculo push que puede devolver de forma sincrónica 
+      o asincrónica cero a valores (potencialmente) infinitos desde 
+      el momento en que se invoca en adelante.
+
+    */
+      //////////////////////////////////////////////////////////////////////////////////
+      console.log('>> INICIO --> Función - SINGLE PULL');
+      function calcularPotencia(base, potencia) {
+        return base ** potencia
+      }
+      console.log(`Potencia función: ${calcularPotencia(3, 2)}`)
+      console.log('>> FIN --> Función');
+  
+      //////////////////////////////////////////////////////////////////////////////////
+  
+      console.log('>> INICIO --> Generador - MULTIPLE PULL');
+      function* calcularPotenciaGen(base, potencia) {
+        while (true) {
+          yield base ** potencia
+          base++
+        }
+      }
+      let gen = calcularPotenciaGen(3, 2)
+      console.log(`Potencia generador 1: ${gen.next().value}`)
+      console.log(`Potencia generador 2: ${gen.next().value}`)
+      console.log(`Potencia generador 3: ${gen.next().value}`)
+      console.log('>> FIN --> Generador');
+  
+      //////////////////////////////////////////////////////////////////////////////////
+  
+      console.log('>> INICIO --> Promesa - SINGLE PUSH');
+      // Se resuelve despues de 2 segundos
+      function resolverDespuesDe2Segundos() {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve('resuelto');
+          }, 2000);
+        });
+      }
+  
+      // Funcion async que llama a la funcion con la promesa
+      async function funcionAsync() {
+        console.log('Llamando');
+        const result = await resolverDespuesDe2Segundos();
+        console.log(result);
+      }
+  
+      // Invocacion con la funcion asincronica
+      funcionAsync();
+      console.log('>> FIN --> Promesa');
+
+      //////////////////////////////////////////////////////////////////////////////////
+
+    console.log('>> INICIO --> Observable - MULTIPLE PUSH');
+    // Abstraccion de Observable como clase
+    class Observable {
+      constructor(funcionInicial) { // Se pasa una funcion como argumento 
+        this.funcionInicial = funcionInicial;
+      }
+      subscribe(observer) {
+        return this.funcionInicial(observer);
+      }
+    }
+
+    // Instaciacion del Observable
+    const intervaloObx = new Observable(observer => {
+      let contador = 0
+      // Se incrementa contador cada 1 seg
+      setInterval(() => observer.next(++contador), 1000)
+      // Se ejecuta marca como completado pasados 5 segs
+      setTimeout(() => observer.complete(), 5000)
+    })
+
+    // Se suscribe al Observable
+    intervaloObx.subscribe({
+      next: (val) => console.log(val),
+      error: (err) => console.log(err),
+      complete: () => console.log('Completado!')
+    })
+
+    console.log('>> FIN --> Observable');
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

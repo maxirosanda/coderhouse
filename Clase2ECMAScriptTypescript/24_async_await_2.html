@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /* Ejemplo de Async - Await 2 */
+
+    console.log('>> INICIO --> Async - Await 2');
+    function resuelve2SegundosDespues(x) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(x);
+        }, 2000);
+      });
+    }
+
+    const agregar = async function (x) {
+      let a  = await resuelve2SegundosDespues(20);
+      let b  = await resuelve2SegundosDespues(30);
+      return x + a + b;      
+    }
+
+    agregar(10).then((v) => {
+      console.log('4seg', v);
+    });
+    console.log('>> FIN --> Async - Await 2');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

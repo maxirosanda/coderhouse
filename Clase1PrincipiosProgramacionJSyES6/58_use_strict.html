@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    "use strict"; // Siempre debe ir al inicio.
+
+    // https://code.jquery.com/jquery-3.5.1.js
+
+    /** Uso de Strict.  */
+    console.log('Inicio --> Uso de Strict en variables. <--');
+    try {
+      a = 1;
+      console.log(a);
+    } catch (e) {
+      console.error(e);
+    }
+    console.log('Fin --> Uso de Strict en variables. <--');
+
+    console.log('Inicio --> Uso de Strict en objetos estaticos. <--');
+    try {
+      let objetoEstatico = Object.create(null, {
+        x: {
+          value: 1 //,
+          // writable: true
+        }
+      });
+      console.log('objetoEstatico', objetoEstatico);
+      objetoEstatico.x = 10;
+      console.log('objetoEstatico', objetoEstatico);
+    } catch (err) {
+      console.error(err);
+    }
+    console.log('Fin --> Uso de Strict en objetos estaticos. <--');
+    
+    console.log('Inicio --> Uso de Strict en objetos dinamicos. <--');
+    let objDinamico = {x:1}
+    console.log('objDinamico', objDinamico)
+    objDinamico.x = 10
+    console.log('objDinamico', objDinamico)
+    console.log('Fin --> Uso de Strict en objetos dinamicos. <--');
+
+    console.log('Inicio --> Uso de Strict en IIFE. <--');
+    (function (num) {
+      "use strict";
+      var clave = 1234
+      console.log(clave);
+      console.log(num);
+    }) (33);
+    console.log('Fin --> Uso de Strict en IIFE. <--');
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

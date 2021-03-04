@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="es">
+
+<head>
+  <title></title>
+  <script>
+    /////////////////////////////////////
+    // Callbacks: Algunas convenciones // (21)
+    /////////////////////////////////////
+    /*
+      - El callback siempre es el último parámetro.
+
+      - El callback suele ser una función que recibe 2 parámetros.
+      
+      - La función llama al callback al terminar de ejecutar 
+        todas sus operaciones.
+      
+      - Si la operación fue exitosa, la función llamará al callback 
+        pasando null como primer parámetro y si generó algún resultado 
+        este se pasará como segundo parámetro.
+      
+      - Si la operación resultó en un error, la función llamará al 
+        callback pasando el error obtenido como primer parámetro.
+
+      - Desde el lado del callback, estas funciones deberán saber 
+        cómo manejar los parámetros
+    */
+    console.log('>> INICIO --> Callbacks: Algunas convenciones.')
+
+    // Manejo por éxito o error de la fn callback
+    const ejemploCallback = (error, resultado) => {
+      if (error) {
+        console.error(`Se ha producido un error: ${error}`)
+      } else {
+        console.log(resultado)
+      }
+    }
+
+    // Función a la que se le pasa el callback
+    let procesar = function(param, ejemploCallback) {
+      let error = null
+      let emptyParam = param ?? true
+      if (emptyParam == true) {
+        error = new Error('param no está definido')
+      }
+      ejemploCallback(error, param)
+    }
+
+    // OK
+    // procesar('Hola', ejemploCallback)
+    
+    // KO - Error handling
+    procesar(null, ejemploCallback)
+
+    console.log('>> FIN --> Callbacks: Algunas convenciones.')
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
