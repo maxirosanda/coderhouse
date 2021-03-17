@@ -1,0 +1,27 @@
+
+
+{{!-- el error estaba en que habia escrito headerSSSSSS, en vez de header --}}
+{{> header }}
+
+
+<h1>Datos personales</h1>
+
+<ul>
+    {{#each datitos}}
+    <li> {{this.apellido}}, {{this.nombre}}</li>
+    {{/each}}
+</ul>
+
+{{#if existe}}
+    <h1>SI EXITE</h1>
+    {{else}}
+    <h1>.....</h1>
+{{/if}}
+
+
+{{#if atr}}
+    <h1>esto es un texto</h1>
+{{/if}}
+
+
+{{> footer }}
