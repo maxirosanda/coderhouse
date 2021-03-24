@@ -29,5 +29,13 @@ function emitir(){
     io.sockets.emit("frases", mensajes);
 }
 
+app.get("/ping", (req, res) => {
+    res.status(200).send("pong");
+})
+
+
 http.listen(3001, () => {console.log("Desafio generico is running")})
+    .on("error", err => {console.log("Error: ", err)})<
+
+app.listen(5000, () => {console.log("HTTP is running")})
     .on("error", err => {console.log("Error: ", err)})
