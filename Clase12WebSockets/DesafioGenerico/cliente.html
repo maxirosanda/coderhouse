@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./cliente.js"></script>
+    <title>Desafio Generico</title>
+</head>
+<body>
+    <h1>Desafio Generico</h1>
+    
+    <label> Introduzca texto</label>
+    <input type="text" id="texto" onkeyup="sendCharacter(this)">
+    <br>
+    <br>
+    <input type="text" id="mensaje">
+    <br>
+    <hr>
+    <br>
+    <br>
+    <input type="text" id="frases">
+    <button type="button" onclick="sendFrase()">Enviar</button>
+    
+    <br>
+    <span id="respuesta"></span>
+    
+</body>
+</html>
