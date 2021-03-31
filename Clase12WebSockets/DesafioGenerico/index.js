@@ -35,7 +35,7 @@ app.get("/ping", (req, res) => {
 
 
 http.listen(3001, () => {console.log("Desafio generico is running")})
-    .on("error", err => {console.log("Error: ", err)})<
+    .on("error", err => {console.log("Error: ", err)})
 
 app.listen(5000, () => {console.log("HTTP is running")})
     .on("error", err => {console.log("Error: ", err)})
