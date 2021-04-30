@@ -1,0 +1,48 @@
+* Utilizando Mongo shell, realizar las siguientes acciones:
+* Crear una base de datos en MongoDB llamada 'empresa'.
+* Crear una colección llamada 'clientes' dentro de esa base.
+* Insertar un documento en la colección clientes que contenga los campos ‘nombre’ y ‘edad’.
+* Insertar un array de tres documentos con el mismo formato y valores distintos en la colección clientes (modo bulk).
+* Utilizando un sólo comando, crear una colección llamada 'articulos' e insertar dentro de ella un array de cuatro documentos con los campos ‘nombre’, ‘precio’ y ‘stock’.
+* Mostrar las colecciones de la base 'empresa'.
+* Listar todos los documentos dentro de cada una de las colecciones.
+Tomar el Object ID de uno de los documentos y comprobar fecha y hora de creación.
+Mostrar la cantidad de documentos que tiene la colección articulos.
+
+
+use empresa
+
+db.clientes.insert( { "nombre": "Hernan", "edad": 32})
+
+db.clientes.insert( [{"nombre": "pepe", "edad": 25}, {"nombre": "cosmes", "edad": 38}, {"nombre": "fulanito", "edad": 62}])
+
+db.articulos.insert( [
+				{"nombre": "remera", "precio": 2500, "stock": 3},
+				{"nombre": "camisa", "precio": 1800.5, "stock": "8"}, 
+				{"nombre": "pantalon", "precio": 1200, "stock": 20}])
+
+
+show databases   --> para ver todas las bases
+db --> para ver en cual estamos parados
+use empresa --> en el caso de querer cambiar a la database empresa
+
+
+show collection
+
+db.getCollection('articulos').find({exists: {"nombre": true} })
+
+db.articulos.find({}, {"nombre": 1})
+
+
+
+EN SQL
+	- select nombre, precio from articulos
+EN MONGO
+	- db.articulos.find({}, {"nombre": 1, "precio": 1})
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+Sobre la base y los datos cargados anteriormente
+* Insertar cinco documentos más en la colección clientes con los siguientes datos:
+{ "nombre" : "Pablo", "edad" : 25 }
+{ "nombre" : "Juan", "edad" : 22 }
+{ "nombre" : "Lucia", "edad" : 25 }
+{ "nombre" : "Juan", "edad" : 29 }
+{ "nombre" : "Fede", "edad" : 35 }
+* Listar todos los documentos de la colección clientes ordenados por edad descendente.
+* Listar el cliente más joven.
+* Listar el segundo cliente más joven.
+* Listar los clientes llamados 'Juan'
+* Listar los clientes llamados 'Juan' que tengan 29 años.
+* Listar los clientes llamados 'Juan' ó 'Lucia'.
+* Listar los clientes que tengan más de 25 años.
+* Listar los clientes que tengan 25 años ó menos.
+* Listar los clientes que NO tengan 25 años.
+* Listar los clientes que estén entre los 26 y 35 años.
+* Actualizar la edad de Fede a 36 años, listando y verificando que no aparezca en el último listado.
+* Actualizar todas las edades de 25 años a 26 años, listando y verificando que aparezcan en el último listado.
+Borrar los clientes que se llamen 'Juan' y listar verificando el resultado.
+
+
+
+db.clientes.insert([{ "nombre" : "Pablo", "edad" : 25 },
+{ "nombre" : "Juan", "edad" : 22 },
+{ "nombre" : "Lucia", "edad" : 25 },
+{ "nombre" : "Juan", "edad" : 29 },
+{ "nombre" : "Fede", "edad" : 35 }])
+
+
+db.clientes.find({}).sort({"edad": -1})
+
+db.clientes.find({}).sort({"edad": 1}).limit(1)
+
+db.clientes.find({}).sort({"edad": 1}).skip(1).limit(1)
+
+db.clientes.find({"nombre": /juan/i})
+db.clientes.find({"nombre" : /juan/i, "edad" : 29})
+
+db.clientes.find({$or: [{ "nombre": /lucia/i}, {"nombre": /juan/i}]})
+db.clientes.find({"nombre": {$in: [/lucia/i, /juan/i]}})
+
+db.clientes.find({ "edad": {$gt: 25}})
+db.clientes.find({ "edad": {$lte: 25}})
+db.clientes.find({edad: { $lte: 25}}).sort({"edad": 1})
+
+db.clientes.find({ edad: {$ne: 25}})
+db.clientes.find({ edad: {$ne: 25}}).sort({"edad": 1})
+
+db.clientes.find({  $and: [		{"edad": {$lte: 35}}, {"edad": {$gte : 26}}]})
+db.clientes.find({  $and: [		{"edad": {$lte: 35}}, {"edad": {$gte : 26}}]}).sort({"edad": 1})
+
+db.clientes.update({"nombre": "Fede"}, {"edad": 36})
+
+db.clientes.update({"edad": 25 }, {$set: {"edad": 26}}, {"multi" : true})
+db.clientes.updateMany({"edad": 26 }, {$set: {"edad": 25}})
+
+
+db.clientes.remove({"nombre": /juan/i})
+
+
+db.createUser({
+	user: "escritor",
+	pwd: "qwerty123",
+	roles: [
+		{role: "readWrite", db: "empresa"}
+	]
+})
+
