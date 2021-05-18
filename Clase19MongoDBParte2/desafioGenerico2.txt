@@ -19,8 +19,6 @@ Sobre la base y los datos cargados anteriormente
 * Actualizar todas las edades de 25 años a 26 años, listando y verificando que aparezcan en el último listado.
 Borrar los clientes que se llamen 'Juan' y listar verificando el resultado.
 
-
-
 db.clientes.insert([{ "nombre" : "Pablo", "edad" : 25 },
 { "nombre" : "Juan", "edad" : 22 },
 { "nombre" : "Lucia", "edad" : 25 },
