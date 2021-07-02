@@ -10,6 +10,7 @@ router.get("/ping", (req, res) => {
 });
 
 router.get("/", loginController.checkLogin);
+router.get("/suma", loginController.suma);
 router.get("/login", loginController.showLogin);
 router.get("/failLogin", (req, res) => { res.sendFile(path.join(__dirname + pathPublic + "login-error.html"))});
 router.post("/login", passport.authenticate('login', {failureRedirect: 'failLogin'}), loginController.login);

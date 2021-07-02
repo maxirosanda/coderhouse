@@ -1,9 +1,23 @@
 const path = require("path");
 const pathPublic = "../../../public/";
+const logica = require("coderhouse-test-operaciones");;
 
 
 module.exports = {
 
+    suma: (req, res) => {
+        let {num1, num2} = req.query;
+        let resultado = logica.suma(num1, num2);
+        res.status(200).send(`<h1>La resta de ${num1} y ${num2} es: ${resultado}</h1>`);
+    },
+
+    checkLogin: (req, res) => {
+        if(req.isAuthenticated()) {
+            res.redirect("/datos");
+        } else {
+            res.redirect("/login");
+        }
+    },
     checkLogin: (req, res) => {
         if(req.isAuthenticated()) {
             res.redirect("/datos");

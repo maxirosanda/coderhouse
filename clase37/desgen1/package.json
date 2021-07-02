@@ -1,0 +1,15 @@
+{
+  "name": "desgen1",
+  "version": "1.0.0",
+  "description": "sarasa",
+  "main": "index.js",
+  "author": "hldiaz",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "debug": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
