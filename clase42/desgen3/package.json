@@ -1,0 +1,14 @@
+{
+  "name": "desgen3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "debug": "n1=12 op=- n2=5 node indexConConfig.js",
+    "prod": "n1=5 op=+ n2=2 node indexConConfig.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
