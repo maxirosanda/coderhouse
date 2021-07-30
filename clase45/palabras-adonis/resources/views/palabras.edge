@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Proyecto con Adonis</title>
+</head>
+<body>
+  <div>
+    <h1>probando Adonis - {{subtitulo}}</h1>
+
+    <h3>PALABRAS</h3>
+    <ul>
+        @each(palabra in arrayPalabras)
+            {{palabra}}
+            <br>
+        @endeach
+    </ul>
+<br>
+<hr>
+<br>
+ <h3>PALABRAS INVERTIDAS</h3>
+    <ul>
+        @each(palabra in arrayPalabrasInvertido)
+            {{palabra}}
+            <br>
+        @endeach
+    </ul>
+     
+
+  </div>
+</body>
+</html>
